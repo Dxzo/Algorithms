@@ -6,7 +6,27 @@ namespace SortingAlgorithms
     {
         public IDataStructure Sort(IDataStructure dataStructure)
         {
-            throw new System.NotImplementedException();
+            var length = dataStructure.Count();
+
+            for (int i = 0; i < length; i++)
+            {
+                int nextIndex = i + 1;
+                int y = i;
+
+                while (dataStructure[nextIndex] < dataStructure[y])
+                {
+                    var nextValue = dataStructure[nextIndex];
+                    var currentValue = dataStructure[y];
+
+                    dataStructure[nextIndex] = currentValue;
+                    dataStructure[y] = nextValue;
+
+                    nextIndex--;
+                    y--;
+                }
+            }
+
+            return dataStructure;
         }
     }
 }
